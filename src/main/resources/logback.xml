@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Copyright (c) 2023 Andrea Binello ("andbin")
+SPDX-License-Identifier: MIT
+-->
+<configuration>
+
+    <define name="vmId" class="dev.andbin.logbackdemo.VmIdPropertyDefiner" scope="system"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %property{vmId} [%thread] %-5level %20.20logger{20} | %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
